@@ -89,6 +89,7 @@ public class AbilityScores
                 chaSc = val;
                 break;
             default:
+                break;
                 //do nothing.
                 //there should probably be some exception handling here 
         }
@@ -118,6 +119,7 @@ public class AbilityScores
                     chaSc = vals[i];
                     break;
                 default:
+                    break;
                     //do nothing.
                     //there should probably be some exception handling here 
             }

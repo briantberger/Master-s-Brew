@@ -10,12 +10,7 @@ public class MagicItem : BasicItem
     //having it equipped raises your armor class it should be able to do that?
     //utility class might be useful.
 
-    public MagicItem(string n, string d, int w, int v, bool a_r, bool a_s) {
-        //BasicItem properties
-        name    = n;
-        desc    = d;
-        weight  = w;
-        value   = v;
+    public MagicItem(string n, string d, int w, int v, bool a_r, bool a_s) : base(n, d, w, v){
 
         //MagicItem specific properties
         attunedRequired = a_r;

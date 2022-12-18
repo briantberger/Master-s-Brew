@@ -12,13 +12,7 @@ public class Weapon : BasicItem
     //bonus to attack die rolls
     private int attackBonus;
 
-    public Weapon(string n, string d, int w, int v, int ad, int rc, int hb, int ab) {
-        //BasicItem properties
-        name    = n;
-        desc    = d;
-        weight  = w;
-        value   = v;
-
+    public Weapon(string n, string d, int w, int v, int ad, int rc, int hb, int ab) : base(n, d, w, v) {
         //Weapon-specific properties
         attackDie   = ad;
         rollCount   = rc;

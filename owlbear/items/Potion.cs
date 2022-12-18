@@ -8,14 +8,8 @@ function pointers when it goes, I guess.
 
 public class Potion : BasicItem
 {
-    
-    public Potion(string n, string d, int w, int v) {
-        //BasicItem properties 
-        name    = n;
-        desc    = d;
-        weight  = w;
-        value   = v;
 
+    public Potion(string n, string d, int w, int v) : base(n, d, w, v) {
         //Potion-specific properties 
     }
 }
