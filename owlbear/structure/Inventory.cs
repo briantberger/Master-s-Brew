@@ -1,9 +1,13 @@
-using items;
+using System;
+using Items;
 
-public class Inventory 
-{ 
-    private List<BasicItem> items;
-    private int load;
-    private int maxLoad;
+namespace Structure
+{
+    public class Inventory
+    {
+        private List<BasicItem> items;
+        private int load;
+        private int maxLoad;
 
+    }
 }

@@ -1,13 +1,18 @@
+using System;
 
-/*
-Represents the Player Character. Essentially the overall structure of the character sheet. 
-*/
-public class PlayerCharacter 
+
+namespace Structure
 {
-    
-    private Inventory charInv;
-    private Equipment charEqp;
-    private AbilityScores charAbi;
+    /*
+    Represents the Player Character. Essentially the overall structure of the character sheet. 
+    */
+    public class PlayerCharacter
+    {
 
-    
+        private Inventory charInv;
+        private Equipment charEqp;
+        private AbilityScores charAbi;
+
+
+    }
 }
