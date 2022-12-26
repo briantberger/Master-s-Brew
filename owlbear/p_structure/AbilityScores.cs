@@ -18,12 +18,12 @@ namespace Structure
         {
             Random rnd = new Random();
 
-            strSc = rnd.Next(1, 21);
-            dexSc = rnd.Next(1, 21);
-            conSc = rnd.Next(1, 21);
-            intSc = rnd.Next(1, 21);
-            wisSc = rnd.Next(1, 21);
-            chaSc = rnd.Next(1, 21);
+            strSc = rnd.Next(1, 19);
+            dexSc = rnd.Next(1, 19);
+            conSc = rnd.Next(1, 19);
+            intSc = rnd.Next(1, 19);
+            wisSc = rnd.Next(1, 19);
+            chaSc = rnd.Next(1, 19);
         }
 
         //Constructor for manually setting ability scores 
