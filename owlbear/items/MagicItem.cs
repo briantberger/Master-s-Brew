@@ -21,5 +21,8 @@ namespace Items
             attunedRequired = a_r;
             attunedStatus = a_s;
         }
+
+        public bool AttunedStatus { get => attunedStatus; set => attunedStatus = value; }
+        public bool AttunedRequired { get => attunedRequired; set => attunedRequired = value; }
     }
 }

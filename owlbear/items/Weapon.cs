@@ -24,5 +24,26 @@ namespace Items
             hitBonus = hb;
             attackBonus = ab;
         }
+
+        public int getAttackDie()
+        {
+            return this.attackDie;
+        }
+
+        public int getRollCount()
+        {
+            return this.rollCount;
+        }
+
+        public int getHitBonus()
+        {
+            return this.hitBonus;
+        }
+
+        public int getAttackBonus()
+        {
+            return this.attackBonus;
+        }
+
     }
 }
