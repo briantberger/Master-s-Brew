@@ -7,8 +7,10 @@ namespace Items
     // attunement status, and if the item need be attuned at all to use its ability.
     public class MagicItem : BasicItem
     {
-        private bool attunedRequired;
-        private bool attunedStatus;
+        private bool m_attunedRequired;
+        private bool m_attunedStatus;
+
+
         //maybe these should act more like potions with a list of effects they can have? 
         //like if it's just a written effect whatever but if it's something like 
         //having it equipped raises your armor class it should be able to do that?
@@ -18,11 +20,11 @@ namespace Items
         {
 
             //MagicItem specific properties
-            attunedRequired = a_r;
-            attunedStatus = a_s;
+            m_attunedRequired = a_r;
+            m_attunedStatus   = a_s;
         }
 
-        public bool AttunedStatus { get => attunedStatus; set => attunedStatus = value; }
-        public bool AttunedRequired { get => attunedRequired; set => attunedRequired = value; }
+        public bool AttunedStatus   { get => m_attunedStatus;   set => m_attunedStatus   = value; }
+        public bool AttunedRequired { get => m_attunedRequired; set => m_attunedRequired = value; }
     }
 }
