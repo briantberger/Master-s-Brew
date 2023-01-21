@@ -22,6 +22,7 @@ namespace Structure
             dexSc = rnd.Next(1, 19);
             conSc = rnd.Next(1, 19);
             intSc = rnd.Next(1, 19);
+            //what???
             wisSc = rnd.Next(1, 19);
             chaSc = rnd.Next(1, 19);
         }
