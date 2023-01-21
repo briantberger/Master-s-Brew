@@ -22,6 +22,7 @@ namespace Items
             //MagicItem specific properties
             m_attunedRequired = a_r;
             m_attunedStatus   = a_s;
+            //please prove im sane
         }
 
         public bool AttunedStatus   { get => m_attunedStatus;   set => m_attunedStatus   = value; }
