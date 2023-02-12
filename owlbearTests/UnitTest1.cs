@@ -40,4 +40,21 @@ public class OwlbearTests
 
         Assert.AreEqual(altName, item.Name);
     }
+
+    [TestMethod]
+    public void SanityTest2()
+    {
+        string name = "c";
+        string desc = "cc";
+        int weight = 12;
+        int val = 32;
+
+        BasicItem item = new BasicItem(name, desc, weight, val);
+        Assert.AreEqual(name, item.Name);
+        Assert.AreEqual(desc, item.Desc);
+        Assert.AreEqual(weight, item.Weight);
+        Assert.AreEqual(val, item.Value);
+
+        Assert.AreEqual(name, item.Name);
+    }
 }
