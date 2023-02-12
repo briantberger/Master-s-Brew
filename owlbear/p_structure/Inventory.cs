@@ -9,5 +9,11 @@ namespace Structure
         private int load;
         private int maxLoad;
 
+        public Inventory(int str)
+        {
+            items = new List<BasicItem>();
+            load = 0;
+            maxLoad = str * 15;
+        } 
     }
 }

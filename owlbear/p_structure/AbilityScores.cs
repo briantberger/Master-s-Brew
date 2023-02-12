@@ -22,7 +22,6 @@ namespace Structure
             dexSc = rnd.Next(1, 19);
             conSc = rnd.Next(1, 19);
             intSc = rnd.Next(1, 19);
-            //what???
             wisSc = rnd.Next(1, 19);
             chaSc = rnd.Next(1, 19);
         }
@@ -43,28 +42,28 @@ namespace Structure
         //reuse the above constructor and do the checking of within points in the frontend stuff. 
 
         //GETTERS AND SETTERS
-        public int getScore(int select)
+        public int getScore(string stat)
         {
-            switch (select)
+            switch (stat)
             {
-                case 1:
+                case "str":
                     return strSc;
-                case 2:
+                case "dex":
                     return dexSc;
-                case 3:
+                case "con":
                     return conSc;
-                case 4:
+                case "int":
                     return intSc;
-                case 5:
+                case "wis":
                     return wisSc;
-                case 6:
+                case "cha":
                     return chaSc;
                 default:
                     return -1;
             }
         }
 
-        public int getModifier(int select)
+        public int getModifier(string select)
         {
             int score = getScore(select);
             return modifier(score);
@@ -76,26 +75,26 @@ namespace Structure
         }
 
         //Change an individual score
-        public void setScore(int select, int val)
+        public void setScore(string select, int val)
         {
             switch (select)
             {
-                case 1:
+                case "str":
                     strSc = val;
                     break;
-                case 2:
+                case "dex":
                     dexSc = val;
                     break;
-                case 3:
+                case "con":
                     conSc = val;
                     break;
-                case 4:
+                case "int":
                     intSc = val;
                     break;
-                case 5:
+                case "wis":
                     wisSc = val;
                     break;
-                case 6:
+                case "cha":
                     chaSc = val;
                     break;
                 default:
@@ -103,39 +102,6 @@ namespace Structure
                     //do nothing.
                     //there should probably be some exception handling here 
             }
-        }
-        //Change multiple scores at the same time
-        //Might be easier to just call the above method multiple times - we'll see
-        public void setScores(int[] selections, int[] vals)
-        {
-            for (int i = 0; i < selections.Length; i++)
-            {
-                switch (selections[i])
-                {
-                    case 1:
-                        strSc = vals[i];
-                        break;
-                    case 2:
-                        dexSc = vals[i];
-                        break;
-                    case 3:
-                        conSc = vals[i];
-                        break;
-                    case 4:
-                        intSc = vals[i];
-                        break;
-                    case 5:
-                        wisSc = vals[i];
-                        break;
-                    case 6:
-                        chaSc = vals[i];
-                        break;
-                    default:
-                        break;
-                        //do nothing.
-                        //there should probably be some exception handling here 
-                }
-            }
-        }
+        } 
     }
 }
