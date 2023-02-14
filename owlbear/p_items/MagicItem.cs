@@ -9,13 +9,10 @@ namespace Items
     {
         private bool m_attunedRequired;
         private bool m_attunedStatus;
+
         private bool m_equipped;
 
-
-        //maybe these should act more like potions with a list of effects they can have? 
-        //like if it's just a written effect whatever but if it's something like 
-        //having it equipped raises your armor class it should be able to do that?
-        //utility class might be useful.
+        private int m_range;
 
         public MagicItem(string n, string d, int w, int v, bool a_r, bool a_s) : base(n, d, w, v)
         {
@@ -32,8 +29,9 @@ namespace Items
         public bool equipped { get => m_equipped; set => m_equipped = value; }
 
         // ACTIONABLE INTERFACE 
-        public int range { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int range { get => m_range; set => m_range = value; }
         public string[] tags => throw new NotImplementedException();
+
 
         public void equip()
         {
