@@ -11,7 +11,6 @@ namespace Structure
 
         private AbilityScores charAbi;
         private Inventory charInv;
-        private Equipment charEqp;
         private CharacterClasses charClasses;
         private HitPoints charHp;
 
@@ -20,7 +19,6 @@ namespace Structure
         {
             charAbi     = new AbilityScores();
             charInv     = new Inventory(charAbi.getScore("str"));
-            charEqp     = new Equipment();
             charClasses = new CharacterClasses();
             charHp      = new HitPoints(charClasses.getHitDie(), charAbi.getModifier("con"));
         }
