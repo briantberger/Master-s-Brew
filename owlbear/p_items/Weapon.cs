@@ -18,6 +18,8 @@ namespace Items
         //is the weapon equipped?
         private bool m_equipped;
 
+        private int m_range;
+
         public Weapon(string n, string d, int w, int v, int ad, int rc, int hb, int ab) : base(n, d, w, v)
         {
             //Weapon-specific properties
@@ -31,7 +33,13 @@ namespace Items
         public int RollCount   { get => m_rollCount;   set => m_rollCount   = value; }
         public int HitBonus    { get => m_hitBonus;    set => m_hitBonus    = value; }
         public int AttackBonus { get => m_attackBonus; set => m_attackBonus = value; }
+
+        // EQUIPPABLE INTERFACE
         public bool equipped { get => m_equipped; set => m_equipped = value; }
+
+        // ACTIONABLE INTERFACE
+        public int range { get => m_range; set => m_range = range; }
+        public string[] tags => throw new NotImplementedException();
 
         public void equip()
         {

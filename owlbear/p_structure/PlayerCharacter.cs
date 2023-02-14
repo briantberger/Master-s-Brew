@@ -28,7 +28,7 @@ namespace Structure
          * MODIFIES: this
          * EFFECTS : attempts to add an item to charInv.
          */
-        public void addItemToInventory(BasicItem item)
+        public void AddItemToInventory(BasicItem item)
         {
             // STUB
         }
@@ -38,7 +38,7 @@ namespace Structure
          * EFFECTS : Removes item from charInv. If item is also equipped, 
          *           unequips the item. 
          */
-        public void removeItemFromInventory(BasicItem item)
+        public void RemoveItemFromInventory(BasicItem item)
         {
             // STUB
         }
@@ -52,7 +52,7 @@ namespace Structure
          *       for equipping the different types of items. I feel like it
          *       should be doable with just one.
          */
-        public Boolean equipItem(BasicItem item)
+        public bool EquipItem(BasicItem item)
         {
             // STUB
             return false;
@@ -65,7 +65,7 @@ namespace Structure
          * TODO: old version uses index based system and again, three different
          *       methods depending on the type of item. 
          */
-        public void unequipItem(BasicItem item)
+        public void UnequipItem(BasicItem item)
         {
             // STUB
         }
@@ -83,6 +83,7 @@ namespace Structure
         {
             private int maxHp;
             private int currHp;
+            private int hitDie;
 
             // TODO: probably need two constructors (or one with a switch)
             // because you can either take the average of the hit die or roll
@@ -90,8 +91,9 @@ namespace Structure
 
             public HitPoints(int hitDie, int conMod)
             {
-                maxHp  = (int) Math.Ceiling((1.0 + hitDie) / 2);
+                maxHp  = (int) Math.Ceiling((1.0 + hitDie) / 2) + conMod;
                 currHp = maxHp;
+                this.hitDie = hitDie;
             }
 
 
@@ -102,9 +104,27 @@ namespace Structure
              *           instead. If amount is positive and resulting currHp 
              *           would be greater than maxHp, sets currHp to maxHp.
              */
-            public void modifyHitPoints(int amount)
+            public void ModifyHitPoints(int amount)
             {
                 // STUB
+            }
+
+            /*
+             * MODIFIES: this
+             * EFFECTS : Increases maxHP by a random integer 1 - hitDie.
+             */
+            public void IncreaseMaxHitPointsRoll()
+            {
+                // STUB
+            }
+
+            /*
+             * MODIFIES: this
+             * EFFECTS : Increases max HP by the average of hitDie.
+             */
+            public void IncreaseMaxHitPointsAverage()
+            {
+
             }
         }
     }

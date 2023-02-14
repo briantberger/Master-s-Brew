@@ -5,10 +5,11 @@ namespace Items
 {
     // Represents a MagicalTrinket all basic item properties, 
     // attunement status, and if the item need be attuned at all to use its ability.
-    public class MagicItem : BasicItem
+    public class MagicItem : BasicItem, Equippable, Actionable
     {
         private bool m_attunedRequired;
         private bool m_attunedStatus;
+        private bool m_equipped;
 
 
         //maybe these should act more like potions with a list of effects they can have? 
@@ -26,5 +27,22 @@ namespace Items
 
         public bool AttunedStatus   { get => m_attunedStatus;   set => m_attunedStatus   = value; }
         public bool AttunedRequired { get => m_attunedRequired; set => m_attunedRequired = value; }
+
+        // EQUIPPABLE INTERFACE
+        public bool equipped { get => m_equipped; set => m_equipped = value; }
+
+        // ACTIONABLE INTERFACE 
+        public int range { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string[] tags => throw new NotImplementedException();
+
+        public void equip()
+        {
+            equipped = true;
+        }
+
+        public void unequip()
+        {
+            equipped = false;
+        }
     }
 }
