@@ -10,10 +10,13 @@ namespace Items
     function pointers when it goes, I guess.
     */
 
+
+    // TODO: Everything here - maybe leave for later.
     public class Potion : BasicItem
     {
 
-        public Potion(string n, string d, int w, int v) : base(n, d, w, v)
+        public Potion(string name, string desc, int weight, int value) :
+            base(name, desc, weight, value)
         {
             //Potion-specific properties 
         }

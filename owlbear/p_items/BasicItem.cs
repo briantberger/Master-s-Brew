@@ -3,7 +3,9 @@ using System;
 
 namespace Items
 {
-    //Represents a BasicItem having name, description, weight, and value.
+    /// <summary>
+    /// Represents a BasicItem having name, description, weight, and value.
+    /// </summary>
     public class BasicItem
     {
         private string  m_name;
@@ -11,12 +13,12 @@ namespace Items
         private int     m_weight;
         private int     m_value;
 
-        public BasicItem(string n, string d, int w, int v)
+        public BasicItem(string name, string desc, int weight, int value)
         {
-            m_name   = n;
-            m_desc   = d;
-            m_weight = w;
-            m_value  = v;
+            m_name   = name;
+            m_desc   = desc;
+            m_weight = weight;
+            m_value  = value;
         }
 
         public string Name  { get => m_name;   set => m_name   = value; }

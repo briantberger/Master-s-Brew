@@ -5,8 +5,19 @@ namespace Items
 	{
 		bool equipped { get; set; }
 
-		void equip();
-		void unequip();
+        /// <summary>
+        /// <para>MODIFIES: this</para>
+        /// <para>EFFECTS : sets equipped status to true (item is equipped)
+		/// </para>
+        /// </summary>
+        void equip();
+
+        /// <summary>
+        /// <para>MODIFIES: this</para>
+        /// <para>EFFECTS : sets equipped status to false (item is unequipped)
+        /// </para>
+        /// </summary>
+        void unequip();
 	}
 }
 

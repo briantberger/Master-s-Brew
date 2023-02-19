@@ -3,30 +3,44 @@ using System;
 
 namespace Structure
 {
+    /// <summary>
+    /// Represents the ability scores of a player character.
+    /// </summary>
     public class AbilityScores
     {
-        //keeping track of the modifiers is kind of redundant because the modifier can be determined from the ability score 
-        private int strSc;  //encoded as 1
-        private int dexSc;  //encoded as 2
-        private int conSc;  //encoded as 3
-        private int intSc;  //encoded as 4
-        private int wisSc;  //encoded as 5
-        private int chaSc;  //encoded as 6
+        private int strSc;  
+        private int dexSc;  
+        private int conSc;  
+        private int intSc;  
+        private int wisSc;  
+        private int chaSc;  
 
-        //Constructor for randomly generating ability scores
+        /// <summary>
+        /// Constructor for randomly choosing ability scores. Simulates rolling
+        /// 4 dice and dropping the lowest number, resulting in scores that may
+        /// be between 3 and 18. 
+        /// </summary>
         public AbilityScores()
         {
             Random rnd = new Random();
 
-            strSc = rnd.Next(1, 19);
-            dexSc = rnd.Next(1, 19);
-            conSc = rnd.Next(1, 19);
-            intSc = rnd.Next(1, 19);
-            wisSc = rnd.Next(1, 19);
-            chaSc = rnd.Next(1, 19);
+            strSc = rnd.Next(3, 19);
+            dexSc = rnd.Next(3, 19);
+            conSc = rnd.Next(3, 19);
+            intSc = rnd.Next(3, 19);
+            wisSc = rnd.Next(3, 19);
+            chaSc = rnd.Next(3, 19);
         }
 
-        //Constructor for manually setting ability scores 
+        /// <summary>
+        /// Constructor for manually inputting ability scores.
+        /// </summary>
+        /// <param name="strIn"></param>
+        /// <param name="dexIn"></param>
+        /// <param name="conIn"></param>
+        /// <param name="intIn"></param>
+        /// <param name="wisIn"></param>
+        /// <param name="chaIn"></param>
         public AbilityScores(int strIn, int dexIn, int conIn, int intIn, int wisIn, int chaIn)
         {
             strSc = strIn;
@@ -35,13 +49,13 @@ namespace Structure
             intSc = intIn;
             wisSc = wisIn;
             chaSc = chaIn;
-        }
+        } 
 
-        //Would like to add constructor for manually setting ability scores with point buy system,
-        //but I feel like that'd work better in a runtime context I guess. Can probably just
-        //reuse the above constructor and do the checking of within points in the frontend stuff. 
-
-        //GETTERS AND SETTERS
+        /// <summary>
+        /// EFFECTS : returns ability score corresponding to stat. 
+        /// </summary>
+        /// <param name="stat"></param>
+        /// <returns></returns>
         public int getScore(string stat)
         {
             switch (stat)
@@ -63,18 +77,33 @@ namespace Structure
             }
         }
 
+        /// <summary>
+        /// EFFECTS : returns modifier for selected ability score
+        /// </summary>
+        /// <param name="select"></param>
+        /// <returns></returns>
         public int getModifier(string select)
         {
             int score = getScore(select);
-            return modifier(score);
+            return generateModifier(score);
         }
 
-        private int modifier(int score)
+        /// <summary>
+        /// EFFECTS : generates ability score modifier.
+        /// </summary>
+        /// <param name="score"></param>
+        /// <returns></returns>
+        private int generateModifier(int score)
         {
             return (score - 10) / 2;
         }
 
-        //Change an individual score
+        /// <summary>
+        /// MODIFIES: this
+        /// EFFECTS : sets ability score specified by select to val.
+        /// </summary>
+        /// <param name="select"></param>
+        /// <param name="val"></param>
         public void setScore(string select, int val)
         {
             switch (select)

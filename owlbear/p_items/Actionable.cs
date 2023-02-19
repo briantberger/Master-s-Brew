@@ -5,6 +5,9 @@ namespace Items
 	{
 		int range { get; set; }
 		string[] tags { get; }
+		ItemAction action { get; set; }
+
+		public ItemAction DoAction();
 
 	}
 }

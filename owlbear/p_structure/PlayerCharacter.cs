@@ -3,9 +3,10 @@ using Items;
 
 namespace Structure
 {
-    /*
-    Represents the Player Character. Assumes a level 1 character. 
-    */
+    /// <summary>
+    /// Represents the Player Character. This is the main point of contact
+    /// between the front end and the rest of the program. 
+    /// </summary>
     public class PlayerCharacter
     {
 
@@ -20,111 +21,121 @@ namespace Structure
             charAbi     = new AbilityScores();
             charInv     = new Inventory(charAbi.getScore("str"));
             charClasses = new CharacterClasses();
-            charHp      = new HitPoints(charClasses.getHitDie(), charAbi.getModifier("con"));
+            charHp      = new HitPoints(charClasses.getHitDie(),
+                                        charAbi.getModifier("con"));
         }
 
 
-        /*
-         * MODIFIES: this
-         * EFFECTS : attempts to add an item to charInv.
-         */
+        /// <summary>
+        /// <para>MODIFIES: this</para>
+        /// <para>EFFECTS : attempts to add item to character Inventory</para>
+        /// </summary>
+        /// <param name="item"></param>
         public void AddItemToInventory(BasicItem item)
         {
             // STUB
         }
 
-        /*
-         * MODIFIES: this
-         * EFFECTS : Removes item from charInv. If item is also equipped, 
-         *           unequips the item. 
-         */
+        /// <summary>
+        /// <para>MODIFIES: this</para>
+        /// <para>EFFECTS : attempts to remove item from Inventory</para>
+        /// </summary>
+        /// <param name="item"></param>
         public void RemoveItemFromInventory(BasicItem item)
         {
             // STUB
         }
 
-        /*
-         * MODIFIES: this
-         * EFFECTS : Equips item to character and returns true. If item can't 
-         *           be equipped, returns false. 
-         *           
-         * TODO: in the old version of this program there were three methods
-         *       for equipping the different types of items. I feel like it
-         *       should be doable with just one.
-         */
-        public bool EquipItem(BasicItem item)
-        {
-            // STUB
-            return false;
-        }
 
-        /*
-         * MODIFIES: this
-         * EFFECTS : Unequips item from character equipment.
-         * 
-         * TODO: old version uses index based system and again, three different
-         *       methods depending on the type of item. 
-         */
-        public void UnequipItem(BasicItem item)
-        {
-            // STUB
-        }
+
+        // TODO: I'm not sure equip stuff should be at this level - seems
+        //       like something that should be handled in Inventory
+
+        //public bool EquipItem(BasicItem item)
+        //{
+        //    // STUB
+        //    return false;
+        //}
+        //
+        //public void UnequipItem(BasicItem item)
+        //{
+        //    // STUB
+        //}
 
         /* 
          * NOTE: 
          * Methods from old version of the program that aren't coming through:
          * - different methods for equipping/unequipping
-         * - "using" an item (I think this behaviour should be handled in Inventory
+         * - "using" an item (I think this behaviour should be handled in 
+         *      Inventory
          * - There's a few methods used in data persistence I'm electing to not
          *      really think about too much yet. 
          */
 
+
+        ///<summary>
+        /// Represents a characters hitPoints with max HP and current HP.
+        ///</summary>
         private class HitPoints
         {
             private int maxHp;
             private int currHp;
-            private int hitDie;
 
             // TODO: probably need two constructors (or one with a switch)
             // because you can either take the average of the hit die or roll
             // for it.
 
-            public HitPoints(int hitDie, int conMod)
+            public HitPoints(int[] hitDie, int conMod)
             {
-                maxHp  = (int) Math.Ceiling((1.0 + hitDie) / 2) + conMod;
+                maxHp  = generateMaxHp(hitDie, conMod);
                 currHp = maxHp;
-                this.hitDie = hitDie;
             }
 
 
-            /*
-             * MODIFIES: this
-             * EFFECTS : adds amount to currHp. If amount is negative and 
-             *           resulting currHp would be negative, sets currHp to 0
-             *           instead. If amount is positive and resulting currHp 
-             *           would be greater than maxHp, sets currHp to maxHp.
-             */
+            /// <summary>
+            /// <para>MODIFIES: this</para>
+            /// <para>EFFECTS : alters hit points by amount, to be no less than
+            /// 0 and no greater than maxHp.</para>
+            /// </summary>
+            /// <param name="amount"></param>
             public void ModifyHitPoints(int amount)
             {
                 // STUB
             }
 
-            /*
-             * MODIFIES: this
-             * EFFECTS : Increases maxHP by a random integer 1 - hitDie.
-             */
-            public void IncreaseMaxHitPointsRoll()
+            /// <summary>
+            /// <para>MODIFIES: this</para>
+            /// <para>EFFECTS : increases Max HP by a random integer from the
+            /// class' hit die.</para>
+            /// </summary>
+            /// <param name="hitDie"></param>
+            public void IncreaseMaxHitPointsRoll(int hitDie)
             {
                 // STUB
             }
 
-            /*
-             * MODIFIES: this
-             * EFFECTS : Increases max HP by the average of hitDie.
-             */
-            public void IncreaseMaxHitPointsAverage()
+            /// <summary>
+            /// <para>MODIFIES: this</para>
+            /// <para>EFFECTS : increases Max HP by the average of the class'
+            /// hit die.</para>
+            /// </summary>
+            /// <param name="hitDie"></param>
+            public void IncreaseMaxHitPointsAverage(int hitDie)
             {
+                // STUB
+            }
 
+            /// <summary>
+            /// EFFECTS : from the array of hitDie, generates maximum HP of
+            /// character.
+            /// </summary>
+            /// <param name="hitDie"></param>
+            /// <param name="conMod"></param>
+            /// <returns></returns>
+            private int generateMaxHp(int[] hitDie, int conMod)
+            {
+                // STUB
+                return 0;
             }
         }
     }

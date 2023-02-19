@@ -3,8 +3,11 @@ using System;
 
 namespace Items
 {
-    // Represents a MagicalTrinket all basic item properties, 
-    // attunement status, and if the item need be attuned at all to use its ability.
+    /// <summary>
+    /// Represents a MagicItem with all BasicItem properties, an attunement
+    /// requirement, and attunement status. MagicItems are Equippable and
+    /// Actionable.
+    /// </summary>
     public class MagicItem : BasicItem, Equippable, Actionable
     {
         private bool m_attunedRequired;
@@ -13,13 +16,18 @@ namespace Items
         private bool m_equipped;
 
         private int m_range;
+        private ItemAction m_action;
 
-        public MagicItem(string n, string d, int w, int v, bool a_r, bool a_s) : base(n, d, w, v)
+        //TODO: I think we'll have the front end ask what the action of an
+        //      item is before it gets made, so this constructor should be
+        //      fine, but if it isn't, we'll figure something else out. 
+        public MagicItem(string name, string desc, int weight, int value,
+            bool attunedRequired, bool attunedStatus, ItemAction action) :
+            base(name, desc, weight, value)
         {
-
-            //MagicItem specific properties
-            m_attunedRequired = a_r;
-            m_attunedStatus   = a_s;
+            m_attunedRequired = attunedRequired;
+            m_attunedStatus   = attunedStatus;
+            m_action = action;
         }
 
         public bool AttunedStatus   { get => m_attunedStatus;   set => m_attunedStatus   = value; }
@@ -27,12 +35,6 @@ namespace Items
 
         // EQUIPPABLE INTERFACE
         public bool equipped { get => m_equipped; set => m_equipped = value; }
-
-        // ACTIONABLE INTERFACE 
-        public int range { get => m_range; set => m_range = value; }
-        public string[] tags => throw new NotImplementedException();
-
-
         public void equip()
         {
             equipped = true;
@@ -41,6 +43,22 @@ namespace Items
         public void unequip()
         {
             equipped = false;
+        }
+
+        // ACTIONABLE INTERFACE 
+        public int range { get => m_range; set => m_range = value; }
+        public string[] tags => throw new NotImplementedException();
+        public ItemAction action { get => m_action;
+                                   set => m_action = value; }
+
+        /*
+        * EFFECTS : Performs action associated with weapon.
+        * TODO: return type of method might need changing
+        */
+        public ItemAction DoAction()
+        {
+            // STUB
+            return action;
         }
     }
 }
