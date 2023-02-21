@@ -1,11 +1,9 @@
 ﻿using System;
 namespace Items
 {
-	public class Stackable
+	public interface Stackable
 	{
-		public Stackable()
-		{
-		}
+		bool stackable { get; set; }
 	}
 }
 

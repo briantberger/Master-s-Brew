@@ -17,7 +17,7 @@ namespace Items
 
         
         public Weapon(string name, string desc, int weight, int value,
-            ItemAttack attack) : base(name, desc, weight, value)
+            ItemAttack attack) : base(name, desc, weight, value, false)
         {
             m_action = attack;
             m_equipped = false;

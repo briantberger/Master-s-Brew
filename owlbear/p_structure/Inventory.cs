@@ -33,7 +33,20 @@ namespace Structure
         /// <param name="item"></param>
         public void AddItemToInventory(BasicItem item)
         {
-            // STUB
+            if ((this.Load + item.Weight) > MaxLoad)
+            {
+                // TODO: actually define the exception to be thrown.
+                throw new Exception();
+            }
+
+            if (item.stackable && this.ContainsItem(item))
+            {
+                this.FindSlot(item).IncQuantity();
+            } else
+            {
+                Items.Add(new InventorySlot(item, 1));
+            }
+            this.Load += item.Weight;
         }
 
         /// <summary>
@@ -44,7 +57,25 @@ namespace Structure
         /// <param name="item"></param>
         public void RemoveItemFromInventory(BasicItem item)
         {
-            // STUB
+            try {
+                InventorySlot toRemove = this.FindSlot(item);
+                if (item.stackable)
+                {
+                    toRemove.DecQuantity();
+                    if (toRemove.Quantity == 0)
+                    {
+                        Items.Remove(toRemove);
+                    }
+                }
+                else
+                {
+                    Items.Remove(toRemove);
+                }
+                this.Load -= item.Weight;
+            } catch (Exception e)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -53,8 +84,16 @@ namespace Structure
         /// <returns></returns>
         public List<Equippable> ListEquippedItems()
         {
-            // STUB
-            return new List<Equippable>();
+            List<Equippable> ret = new List<Equippable>();
+            foreach (InventorySlot slot in Items)
+            {
+                if (slot.Item is Equippable &&
+                    ((Equippable)slot.Item).equipped == true)
+                {
+                    ret.Add((Equippable)slot.Item);
+                }
+            }
+            return ret;
         }
 
         /// <summary>
@@ -64,8 +103,15 @@ namespace Structure
         /// <returns></returns>
         public List<Equippable> ListEquippableItems()
         {
-            // STUB
-            return new List<Equippable>();
+            List<Equippable> ret = new List<Equippable>();
+            foreach (InventorySlot slot in Items)
+            {
+                if (slot.Item is Equippable)
+                {
+                    ret.Add((Equippable)slot.Item);
+                }
+            }
+            return ret;
         }
 
         /// <summary>
@@ -75,8 +121,15 @@ namespace Structure
         /// <returns></returns>
         public List<BasicItem> ListUnequippableItems()
         {
-            // STUB
-            return new List<BasicItem>();
+            List<BasicItem> ret = new List<BasicItem>();
+            foreach (InventorySlot slot in Items)
+            {
+                if (!(slot.Item is Equippable))
+                {
+                    ret.Add(slot.Item);
+                }
+            }
+            return ret;
         }
 
         /// <summary>
@@ -86,22 +139,55 @@ namespace Structure
         /// <returns></returns>
         public Boolean ContainsItem(BasicItem item)
         {
-            // STUB
+            foreach (InventorySlot slot in Items)
+            {
+                if (slot.Item == item) return true;
+            }
             return false;
         }
+
+        /// <summary>
+        /// Finds slot with item
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public InventorySlot FindSlot(BasicItem item)
+        {
+            foreach (InventorySlot slot in Items)
+            {
+                if (slot.Item == item) return slot;
+            }
+            // TODO: actually define the Exception
+            throw new Exception();
+        }
+
         /// <summary>
         /// Represents a single inventory slot, consisting of the item in that
         /// slot and the quantity of item.
         /// </summary>
         public class InventorySlot
         {
-            private BasicItem item;
-            private int quantity;
+            private BasicItem m_item;
+            private int m_quantity;
 
-            protected InventorySlot(BasicItem item, int quantity)
+            public InventorySlot(BasicItem item, int quantity)
             {
-                this.item = item;
-                this.quantity = quantity;
+                this.m_item = item;
+                this.m_quantity = quantity;
+            }
+
+            public BasicItem Item { get => m_item; set => m_item = value; }
+            public int Quantity { get => m_quantity; set => m_quantity = value; }
+
+            public void IncQuantity()
+            {
+                this.m_quantity++;
+            }
+
+            public void DecQuantity()
+            {
+                this.m_quantity--;
             }
         }
     }

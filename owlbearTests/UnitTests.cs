@@ -44,8 +44,8 @@ public class OwlbearTests
 
         this.testAction1 = new ItemAction("testAction");
 
-        this.basicItem1 = new BasicItem("Piton", "PitonDesc", 2.5, 0.5);
-        this.basicItem2 = new BasicItem("Thieves' Tools", "ToolsDesc", 1, 25);
+        this.basicItem1 = new BasicItem("Piton", "PitonDesc", 2.5, 0.5, false);
+        this.basicItem2 = new BasicItem("Thieves' Tools", "ToolsDesc", 1, 25, false);
 
         this.weapon1 = new Weapon("Rapier", "RapierDesc", 2, 25, testAttack1);
         this.weapon2 = new Weapon("Shortbow", "ShortbowDesc", 2, 25,

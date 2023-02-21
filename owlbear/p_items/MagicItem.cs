@@ -23,7 +23,7 @@ namespace Items
         //      fine, but if it isn't, we'll figure something else out. 
         public MagicItem(string name, string desc, double weight, double value,
             bool attunedRequired, bool attunedStatus, ItemAction action) :
-            base(name, desc, weight, value)
+            base(name, desc, weight, value, false)
         {
             m_attunedRequired = attunedRequired;
             m_attunedStatus   = attunedStatus;

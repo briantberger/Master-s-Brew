@@ -71,7 +71,14 @@ namespace Structure
         /// <param name="item"></param>
         public void AddItemToInventory(BasicItem item)
         {
-            // STUB
+            try
+            {
+                CharInv.AddItemToInventory(item);
+            } catch (Exception e)
+            {
+                // TODO: update this when exception is properly defined
+                throw;
+            }
         }
 
         /// <summary>
@@ -81,34 +88,15 @@ namespace Structure
         /// <param name="item"></param>
         public void RemoveItemFromInventory(BasicItem item)
         {
-            // STUB
+            try
+            {
+                CharInv.RemoveItemFromInventory(item);
+            } catch (Exception e)
+            {
+                // TODO: update this when exception is properly defined
+                throw;
+            }
         }
-
-
-
-        // TODO: I'm not sure equip stuff should be at this level - seems
-        //       like something that should be handled in Inventory
-
-        //public bool EquipItem(BasicItem item)
-        //{
-        //    // STUB
-        //    return false;
-        //}
-        //
-        //public void UnequipItem(BasicItem item)
-        //{
-        //    // STUB
-        //}
-
-        /* 
-         * NOTE: 
-         * Methods from old version of the program that aren't coming through:
-         * - different methods for equipping/unequipping
-         * - "using" an item (I think this behaviour should be handled in 
-         *      Inventory
-         * - There's a few methods used in data persistence I'm electing to not
-         *      really think about too much yet. 
-         */
 
 
         ///<summary>
@@ -138,7 +126,20 @@ namespace Structure
             /// <param name="amount"></param>
             public void ModifyHitPoints(int amount)
             {
-                // STUB
+                currHp += amount;
+
+                if (currHp > maxHp)
+                {
+                    currHp = maxHp;
+                    return;
+                }
+
+                if (currHp < 0)
+                {
+                    currHp = 0;
+                    return;
+                }
+
             }
 
             /// <summary>
@@ -149,7 +150,8 @@ namespace Structure
             /// <param name="hitDie"></param>
             public void IncreaseMaxHitPointsRoll(int hitDie)
             {
-                // STUB
+                Random rnd = new Random();
+                maxHp += rnd.Next(1, hitDie + 1);
             }
 
             /// <summary>
@@ -160,9 +162,10 @@ namespace Structure
             /// <param name="hitDie"></param>
             public void IncreaseMaxHitPointsAverage(int hitDie)
             {
-                // STUB
+                maxHp += (1 + hitDie) / 2;
             }
 
+            // TODO: figure out why we even need this
             /// <summary>
             /// EFFECTS : from the array of hitDie, generates maximum HP of
             /// character.

@@ -13,10 +13,12 @@ namespace Items
         int m_AC_Bonus;
         bool m_equipped;
 
-        public Armor(string n, string d, int w, int v, int ac_o, int ac_b) : base(n, d, w, v)
+        public Armor(string name, string desc, double weight, double value,
+                     int ac_override, int ac_bonus) :
+                     base(name, desc, weight, value, false)
         {
-            m_AC_Over  = ac_o;
-            m_AC_Bonus = ac_b;
+            m_AC_Over  = ac_override;
+            m_AC_Bonus = ac_bonus;
             m_equipped = false;
         }
 

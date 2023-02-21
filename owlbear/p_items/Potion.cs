@@ -16,7 +16,7 @@ namespace Items
     {
 
         public Potion(string name, string desc, int weight, int value) :
-            base(name, desc, weight, value)
+            base(name, desc, weight, value, false)
         {
             //Potion-specific properties 
         }
