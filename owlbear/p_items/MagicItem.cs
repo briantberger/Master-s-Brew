@@ -1,5 +1,5 @@
 using System;
-
+using Items.Properties;
 
 namespace Items
 {
@@ -9,6 +9,7 @@ namespace Items
     /// Actionable.
     /// </summary>
     public class MagicItem : BasicItem, Equippable, Actionable
+        // TODO: should this be equippable?
     {
         private bool m_attunedRequired;
         private bool m_attunedStatus;

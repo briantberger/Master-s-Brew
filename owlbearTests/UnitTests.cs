@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Structure;
 using Items;
+using Items.Properties;
 
 namespace owlbearTests;
 

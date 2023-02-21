@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Items
+namespace Items.Properties
 {
 	public interface Actionable
 	{

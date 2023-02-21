@@ -1,0 +1,57 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<p>
+    Name: @playerCharacter.name
+</p>
+<p>Str: @playerCharacter.abi.getScore("str")</p>
+<p>Dex: @playerCharacter.abi.getScore("dex")</p>
+<p>Con: @playerCharacter.abi.getScore("con")</p>
+<p>Int: @playerCharacter.abi.getScore("int")</p>
+<p>Wis: @playerCharacter.abi.getScore("wis")</p>
+<p>Cha: @playerCharacter.abi.getScore("cha")</p>
+
+    @code {
+
+        PCViewModel playerCharacter = null;
+        protected override void OnInitialized()
+        {
+            base.OnInitialized();
+
+            playerCharacter = new PCViewModel();
+            {
+
+            }
+        }
+
+        #region PCViewModel
+        class PCViewModel
+        {
+            public int[] hitDie = new int[1];
+            public string name { get; set; }
+            public AbilityScores abi { get; set; }
+            public Inventory inv { get; set; }
+            public HitPoints hp { get; set; }
+
+            public PCViewModel()
+            {
+                hitDie[0] = 10;
+                name = "Saryon";
+                abi = new AbilityScores();
+                inv = new Inventory(10);
+                hp = new HitPoints(hitDie, 12);
+            }
+        }
+
+        #endregion
+
+
+
+    }

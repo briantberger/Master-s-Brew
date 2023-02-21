@@ -1,5 +1,7 @@
 using System;
 using Items;
+using Items.Properties;
+
 
 namespace Structure
 {
