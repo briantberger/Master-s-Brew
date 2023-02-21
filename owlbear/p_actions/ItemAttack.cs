@@ -6,7 +6,7 @@ namespace Items
      * attack die, the number of times that die is rolled, its hit bonus,
      * and its attack bonus.
      * 
-     * For example, the "Staff" melee weapon in DnD 5e would have the following
+     * For example, the "Staff" melee weapon in DnD 5e could have the following
      * attack:
      * Hit Bonus: +4, Attack: 1d6+2.
      * This means that your hit roll of a d20 would have +4, and the damage of

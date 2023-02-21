@@ -9,8 +9,8 @@ namespace Structure
     public class Inventory
     {
         private List<InventorySlot> m_items;
-        private int m_load;
-        private int m_maxLoad;
+        private double m_load;
+        private double m_maxLoad;
 
         public Inventory(int str)
         {
@@ -21,8 +21,8 @@ namespace Structure
 
         public List<InventorySlot> Items { get => m_items;
                                            set => m_items = value; }
-        public int Load { get => m_load; set => m_load = value; }
-        public int MaxLoad { get => m_maxLoad; set => m_maxLoad = value; }
+        public double Load { get => m_load; set => m_load = value; }
+        public double MaxLoad { get => m_maxLoad; set => m_maxLoad = value; }
 
         /// <summary>
         /// <para>MODIFIES: this</para>
@@ -51,10 +51,10 @@ namespace Structure
         /// EFFECTS : returns a list of all currently equipped items
         /// </summary>
         /// <returns></returns>
-        public List<BasicItem> ListEquippedItems()
+        public List<Equippable> ListEquippedItems()
         {
             // STUB
-            return new List<BasicItem>();
+            return new List<Equippable>();
         }
 
         /// <summary>
@@ -62,14 +62,14 @@ namespace Structure
         /// including those already equipped
         /// </summary>
         /// <returns></returns>
-        public List<BasicItem> ListEquippableItems()
+        public List<Equippable> ListEquippableItems()
         {
             // STUB
-            return new List<BasicItem>();
+            return new List<Equippable>();
         }
 
         /// <summary>
-        /// EFFECTS: returns a list of all items in inventory that cannot be
+        /// EFFECTS : returns a list of all items in inventory that cannot be
         /// equipped.
         /// </summary>
         /// <returns></returns>
@@ -80,10 +80,19 @@ namespace Structure
         }
 
         /// <summary>
+        /// EFFECTS : returns true if item can be found in inventory in any
+        ///           quantity, false if not. 
+        /// </summary>
+        /// <returns></returns>
+        public Boolean ContainsItem(BasicItem item)
+        {
+            // STUB
+            return false;
+        }
+        /// <summary>
         /// Represents a single inventory slot, consisting of the item in that
         /// slot and the quantity of item.
         /// </summary>
-        // TODO: we probably need a "stackable" interface
         public class InventorySlot
         {
             private BasicItem item;

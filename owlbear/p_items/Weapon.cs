@@ -20,6 +20,7 @@ namespace Items
             ItemAttack attack) : base(name, desc, weight, value)
         {
             m_action = attack;
+            m_equipped = false;
         }
 
         // EQUIPPABLE INTERFACE

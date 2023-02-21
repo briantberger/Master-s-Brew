@@ -17,6 +17,7 @@ namespace Items
         {
             m_AC_Over  = ac_o;
             m_AC_Bonus = ac_b;
+            m_equipped = false;
         }
 
         public int AC_Over  { get => m_AC_Over;  set => m_AC_Over = value; }

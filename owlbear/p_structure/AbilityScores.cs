@@ -95,7 +95,14 @@ namespace Structure
         /// <returns></returns>
         private int generateModifier(int score)
         {
-            return (score - 10) / 2;
+            if (score >= 10)
+            {
+                return (score - 10) / 2;
+            }
+            else
+            {
+                return ((score - 1) - 10) / 2;
+            }
         }
 
         /// <summary>
@@ -131,6 +138,22 @@ namespace Structure
                     //do nothing.
                     //there should probably be some exception handling here 
             }
-        } 
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is AbilityScores scores &&
+                   strSc == scores.strSc &&
+                   dexSc == scores.dexSc &&
+                   conSc == scores.conSc &&
+                   intSc == scores.intSc &&
+                   wisSc == scores.wisSc &&
+                   chaSc == scores.chaSc;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(strSc, dexSc, conSc, intSc, wisSc, chaSc);
+        }
     }
 }

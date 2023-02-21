@@ -21,12 +21,13 @@ namespace Items
         //TODO: I think we'll have the front end ask what the action of an
         //      item is before it gets made, so this constructor should be
         //      fine, but if it isn't, we'll figure something else out. 
-        public MagicItem(string name, string desc, int weight, int value,
+        public MagicItem(string name, string desc, double weight, double value,
             bool attunedRequired, bool attunedStatus, ItemAction action) :
             base(name, desc, weight, value)
         {
             m_attunedRequired = attunedRequired;
             m_attunedStatus   = attunedStatus;
+            m_equipped = false;
             m_action = action;
         }
 
