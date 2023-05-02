@@ -1,0 +1,21 @@
+﻿<div class="scoregrid">
+    <AbilityScoreComponent score=@abilityScores.getScore("str") name="STR" modifier=@abilityScores.getModifier("str")>
+        </AbilityScoreComponent>
+    <AbilityScoreComponent score=@abilityScores.getScore("dex") name="DEX" modifier="@abilityScores.getModifier("dex")">
+        </AbilityScoreComponent>
+    <AbilityScoreComponent score=@abilityScores.getScore("con") name="CON" modifier="@abilityScores.getModifier("con")">
+        </AbilityScoreComponent>
+    <AbilityScoreComponent score=@abilityScores.getScore("int") name="INT" modifier="@abilityScores.getModifier("int")">
+        </AbilityScoreComponent>
+    <AbilityScoreComponent score=@abilityScores.getScore("wis") name="WIS" modifier="@abilityScores.getModifier("wis")">
+        </AbilityScoreComponent>
+    <AbilityScoreComponent score=@abilityScores.getScore("cha") name="CHA" modifier="@abilityScores.getModifier("cha")">
+        </AbilityScoreComponent>
+</div>
+
+@code {
+
+    [Parameter]
+    public AbilityScores abilityScores { get; set; }
+
+}

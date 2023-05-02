@@ -1,14 +1,15 @@
 ﻿@page "/playercharacter"
 
 <h3>PlayerCharacter</h3>
-
-<owlbear_ui.Components.AbilityScoreComponent name="str" score=@pc.CharAbi.getScore("str")>
-
-</owlbear_ui.Components.AbilityScoreComponent>
+<div style="overflow:hidden">
+    <owlbear_ui.Components.AbilityScoreDisplay abilityScores=@abi>
+    </owlbear_ui.Components.AbilityScoreDisplay>
+</div>
 
 @code {
     // basically random for now - just wanna get the layout of everything good
     public static CharacterClass testClass = new CharacterClass("test", 10);
-    public PlayerCharacter pc = new PlayerCharacter(testClass, "Saryon");
+    public static PlayerCharacter pc = new PlayerCharacter(testClass, "Saryon");
+    public static AbilityScores abi = pc.CharAbi;
 }
 

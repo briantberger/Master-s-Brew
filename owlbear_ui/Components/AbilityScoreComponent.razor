@@ -1,6 +1,14 @@
-﻿<div class="square">
-    <div class="boxcontent">@name: @score</div>
+﻿<div width="100px" height="100px">
+    <div class="scorebox">
+        <span class="number">@score</span>
+        <span class="caption">@name</span>
+    </div>
+    <div style="padding-top: 3px"></div>
+    <div class="modbtn">
+        <span class="modifier">@modifier</span>
+    </div>
 </div>
+
 
 @code {
     [Parameter]
@@ -8,5 +16,8 @@
 
     [Parameter]
     public int? score { get; set; }
+
+    [Parameter]
+    public int? modifier { get; set; }
 }
 
