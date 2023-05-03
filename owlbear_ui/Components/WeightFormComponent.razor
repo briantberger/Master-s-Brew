@@ -1,0 +1,14 @@
+﻿<div class="input-container">
+    <label for="@Id">@Label</label>
+    <input type="range" id="@Id" @bind-value="@Value" min="@Min" max="@Max" step="@Step" />
+    <input type="number" @bind-value="@Value" min="@Min" max="@Max" step="@Step" />
+</div>
+
+@code {
+    [Parameter] public string Id { get; set; } = Guid.NewGuid().ToString();
+    [Parameter] public string Label { get; set; } = "Number:";
+    [Parameter] public int Value { get; set; } = 0;
+    [Parameter] public int Min { get; set; } = 0;
+    [Parameter] public int Max { get; set; } = 100;
+    [Parameter] public int Step { get; set; } = 1;
+}
