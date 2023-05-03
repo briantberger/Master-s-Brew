@@ -1,5 +1,6 @@
 using System;
 
+// massive OCP violation, but I'm not sure there's an easy way around it.
 
 namespace Structure
 {
