@@ -22,6 +22,9 @@ namespace Structure
             this.level = 1;
         }
 
+        public int HitDie { get => hitDie; set => hitDie = value; }
+        public int Level { get => level; set => level = value; }
+
         /// <summary>
         /// Constructor for manually setting level.
         /// </summary>

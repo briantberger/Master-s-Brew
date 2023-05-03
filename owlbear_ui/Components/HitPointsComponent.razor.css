@@ -1,0 +1,34 @@
+﻿.hpDisplay {
+    display: flex;
+    position: relative;
+    flex-flow:column;
+    width: 140px;
+    height: 50px;
+    line-height: 20px;
+    border-radius: 10px;
+    background-color: aquamarine;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.button {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+    .button.plus::before {
+        content: "+";
+    }
+
+    .button.minus::before {
+        content: "-";
+    }

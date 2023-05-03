@@ -1,0 +1,25 @@
+﻿
+<div class="hpDisplay">
+    <div style="font-size: 24px">@hitPoints.CurrHp / @hitPoints.MaxHp</div>
+    <div style="flex-direction:row">
+        <button class="button plus" @onclick="IncrementHP"></button>
+        <button class="button minus" @onclick="DecrementHP"></button>
+    </div>
+</div>
+
+
+
+@code {
+    [Parameter]
+    public HitPoints hitPoints { get; set; }
+
+    private void IncrementHP()
+    {
+        hitPoints.CurrHp += 1;
+    }
+
+    private void DecrementHP()
+    {
+        hitPoints.CurrHp -= 1;
+    }
+}

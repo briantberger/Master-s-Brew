@@ -22,11 +22,25 @@ namespace Structure
         /// <summary>
         /// EFFECTS : returns list of each class' hit die
         /// </summary>
-        /// <returns></returns>
         public int[] getHitDie()
         {
-            // STUB
-            return Array.Empty<int>();
+            int[] hitDie = new int[sumLevels()];
+            int i = 0;
+            foreach (CharacterClass characterClass in m_classes)
+            {
+                hitDie[i++] = characterClass.HitDie;
+            }
+            return hitDie;
+        }
+
+        private int sumLevels()
+        {
+            int result = 0;
+            foreach (CharacterClass characterClass in m_classes)
+            {
+                result += characterClass.Level;
+            }
+            return result;
         }
 
         /// <summary>

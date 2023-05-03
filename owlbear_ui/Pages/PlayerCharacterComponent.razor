@@ -4,6 +4,8 @@
 <div style="overflow:hidden">
     <owlbear_ui.Components.AbilityScoreDisplay abilityScores=@abi>
     </owlbear_ui.Components.AbilityScoreDisplay>
+    <owlbear_ui.Components.HitPointsComponent hitPoints=@hp>
+    </owlbear_ui.Components.HitPointsComponent>
 </div>
 
 @code {
@@ -11,5 +13,6 @@
     public static CharacterClass testClass = new CharacterClass("test", 10);
     public static PlayerCharacter pc = new PlayerCharacter(testClass, "Saryon");
     public static AbilityScores abi = pc.CharAbi;
+    public static HitPoints hp = pc.CharHp;
 }
 

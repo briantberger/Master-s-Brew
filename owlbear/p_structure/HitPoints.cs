@@ -15,9 +15,12 @@ namespace Structure
 
         public HitPoints(int[] hitDie, int conMod)
         {
-            maxHp = generateMaxHp(hitDie, conMod);
+            maxHp = hitDie[0];
             currHp = maxHp;
         }
+
+        public int MaxHp { get => maxHp; set => maxHp = value; }
+        public int CurrHp { get => currHp; set => currHp = value; }
 
 
         /// <summary>
