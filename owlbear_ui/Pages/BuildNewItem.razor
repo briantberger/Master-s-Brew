@@ -1,15 +1,10 @@
 ﻿@page "/item";
 
 <h3>Create a new item</h3>
-<div style="display: flex; justify-content: space-between; max-width: 50%">
+<div style="display: flex; justify-content: space-between; max-width: 70%">
     <owlbear_ui.Components.NameFormComponent></owlbear_ui.Components.NameFormComponent>
     <owlbear_ui.Components.DescFormComponent></owlbear_ui.Components.DescFormComponent>
-    <owlbear_ui.Components.WeightFormComponent Label="Weight" @bind-Value="@number"></owlbear_ui.Components.WeightFormComponent>
+    <owlbear_ui.Components.WeightFormComponent></owlbear_ui.Components.WeightFormComponent>
+    <owlbear_ui.Components.ValueFormComponent></owlbear_ui.Components.ValueFormComponent>
+    <owlbear_ui.Components.StackableFormComponent></owlbear_ui.Components.StackableFormComponent>
 </div>
-
-<p>You entered: @number</p>
-
-
-@code {
-    private int number = 0;
-}
