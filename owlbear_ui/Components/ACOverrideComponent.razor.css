@@ -1,0 +1,50 @@
+﻿form {
+    width: 500px;
+    margin: auto;
+    font-size: 18px;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+label {
+    flex-basis: 50%;
+    margin-right: 20px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: calc(50% - 70px);
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+}
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+/* Disable input when checkbox is unchecked */
+input[type="checkbox"]:not(:checked) ~ input[type="number"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

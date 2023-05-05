@@ -1,0 +1,25 @@
+﻿<label>
+    <input type="checkbox" @bind="IsFormEnabled" /> Armor overrides AC?
+</label>
+
+@if (IsFormEnabled)
+{
+    <div class="form-group">
+        <label for="input-number">AC: </label>
+        <input type="number" id="input-number" @bind="NumberInput" />
+    </div>
+}
+
+@code {
+    bool IsFormEnabled { get; set; } = false;
+    int NumberInput { get; set; }
+
+    void SubmitForm()
+    {
+        if (IsFormEnabled)
+        {
+            // Code to handle form submission goes here
+            Console.WriteLine($"Form submitted with value: {NumberInput}");
+        }
+    }
+}
