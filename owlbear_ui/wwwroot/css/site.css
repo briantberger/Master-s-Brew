@@ -81,4 +81,21 @@ a, .btn-link {
         content: "An error has occurred."
     }
 
+.buffer {
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    margin: 10px;
+}
+
+.row {
+    display:flex;
+    flex-direction: row;
+}
 

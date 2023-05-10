@@ -1,15 +1,23 @@
 ﻿@page "/armor";
 
-<h3>Create a new item</h3>
+<h3>Create a new armor piece</h3>
 <div style="display: flex; justify-content: space-between; max-width: 70%">
-    <owlbear_ui.Components.NameFormComponent></owlbear_ui.Components.NameFormComponent>
-    <owlbear_ui.Components.DescFormComponent></owlbear_ui.Components.DescFormComponent>
+    <div class="stack">
+        <div class="item">
+            <owlbear_ui.Components.NameFormComponent></owlbear_ui.Components.NameFormComponent>
+        </div>
+        <div class="item">
+            <owlbear_ui.Components.DescFormComponent></owlbear_ui.Components.DescFormComponent>
+        </div>
+    </div>
     <owlbear_ui.Components.WeightFormComponent></owlbear_ui.Components.WeightFormComponent>
     <owlbear_ui.Components.ValueFormComponent></owlbear_ui.Components.ValueFormComponent>
 </div>
+<div class="buffer"></div>
 <div style="display: flex; justify-content: space-between; max-width: 70%">
     <owlbear_ui.Components.ACOverrideComponent></owlbear_ui.Components.ACOverrideComponent>
 </div>
+<div class="buffer"></div>
 <div style="display: flex; justify-content: space-between; max-width: 70%">
     <owlbear_ui.Components.ACBonusComponent></owlbear_ui.Components.ACBonusComponent>
 </div>
