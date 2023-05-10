@@ -1,0 +1,23 @@
+﻿<div style="display: flex; flex-direction: row;">
+    <div class="itemName">
+        @item.Name
+    </div>
+    <textarea readonly class="itemDesc">
+        @item.Desc
+    </textarea>
+    <div class="itemWeight">
+        @item.Weight
+    </div>
+    <div class="itemValue">
+        @item.Value
+    </div>
+</div>
+
+
+
+
+
+@code {
+        [Parameter]
+    public BasicItem item { get; set; }
+}
