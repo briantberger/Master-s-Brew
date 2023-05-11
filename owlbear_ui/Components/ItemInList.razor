@@ -1,15 +1,16 @@
-﻿<div style="display: flex; flex-direction: row;">
+﻿
+<div style="display: flex; flex-direction: row;">
     <div class="itemName">
-        @item.Name
+        @item.i_name
     </div>
     <textarea readonly class="itemDesc">
-        @item.Desc
+        @item.i_desc
     </textarea>
     <div class="itemWeight">
-        @item.Weight
+        @item.i_weight
     </div>
     <div class="itemValue">
-        @item.Value
+        @item.i_value
     </div>
 </div>
 
@@ -19,5 +20,5 @@
 
 @code {
         [Parameter]
-    public BasicItem item { get; set; }
+    public InventoryComponent.ItemSlotViewModel item { get; set; }
 }

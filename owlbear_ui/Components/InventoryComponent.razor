@@ -1,4 +1,55 @@
-﻿<div>
-
+﻿
+<div>
+    @foreach (ItemSlotViewModel slot in slots) {
+        <ItemInList item=slot></ItemInList>
+    }
 </div>
+
+
+@code {
+    [Parameter]
+    public Inventory inv { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        init();
+    }
+
+    public List<ItemSlotViewModel> slots = new List<ItemSlotViewModel>();
+
+    public class ItemSlotViewModel
+    {
+        public string i_name { get; set; }
+        public string i_desc { get; set; }
+        public double i_weight { get; set; }
+        public double i_value { get; set; }
+        public bool i_stackable { get; set; }
+        public int i_quantity { get; set; }
+
+
+        public ItemSlotViewModel(InventorySlot slot)
+        {
+            BasicItem item = slot.Item;
+            i_name = item.Name;
+            i_desc = item.Desc;
+            i_weight = item.Weight;
+            i_value = item.Value;
+            i_stackable = item.stackable;
+            i_quantity = slot.Quantity;
+            Console.WriteLine("Item name:");
+            Console.WriteLine(i_name);
+        }
+    }
+
+    public void init()
+    {
+        Console.WriteLine(inv.MaxLoad);
+        foreach (InventorySlot slot in inv.Items)
+        {
+            slots.Add(new ItemSlotViewModel(slot));
+        }
+    }
+}
 

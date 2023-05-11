@@ -1,22 +1,42 @@
 ﻿@page "/playercharacter"
 
 <h3>PlayerCharacter</h3>
-<div style="overflow:hidden">
-    <owlbear_ui.Components.AbilityScoreDisplay abilityScores=@abi>
-    </owlbear_ui.Components.AbilityScoreDisplay>
-    <owlbear_ui.Components.HitPointsComponent hitPoints=@hp>
-    </owlbear_ui.Components.HitPointsComponent>
+<div style="display: flex; flex-direction: row;">
+    <div>
+        <owlbear_ui.Components.AbilityScoreDisplay abilityScores=@abi>
+        </owlbear_ui.Components.AbilityScoreDisplay>
+        <div class="buffer"></div>
+        <owlbear_ui.Components.HitPointsComponent hitPoints=@hp>
+        </owlbear_ui.Components.HitPointsComponent>
+    </div>
     <div class="buffer"></div>
-    <owlbear_ui.Components.ItemInList item=@testItem>
-    </owlbear_ui.Components.ItemInList>
+    <owlbear_ui.Components.InventoryComponent inv=@pc.CharInv>
+    </owlbear_ui.Components.InventoryComponent>
 </div>
 
+
+
 @code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        pc.AddItemToInventory(testItem);
+        pc.AddItemToInventory(testItem2);
+        pc.AddItemToInventory(testItem3);
+    }
     // basically random for now - just wanna get the layout of everything good
     public static CharacterClass testClass = new CharacterClass("test", 10);
     public static PlayerCharacter pc = new PlayerCharacter(testClass, "Saryon");
     public static AbilityScores abi = pc.CharAbi;
     public static HitPoints hp = pc.CharHp;
     public static BasicItem testItem = new BasicItem("testItem", "this item is for testing", 12, 13, false);
+    public static BasicItem testItem2 = new BasicItem("testItem2", "second test Item", 14, 15, false);
+    public static BasicItem testItem3 = new BasicItem("testItem3", "This is the third test item. I've itentionally " +
+    "made it's description exceedingly long to see how the component handles longer descriptions, as this behaviour " +
+    "is probably not handled very well. According to all known laws of aviation, there is no way a bee should be able" +
+    "to fly.", 2, 3, false);
+
+
 }
 
