@@ -3,11 +3,15 @@
 <h3>PlayerCharacter</h3>
 <div style="display: flex; flex-direction: row;">
     <div>
-        <owlbear_ui.Components.AbilityScoreDisplay abilityScores=@abi>
-        </owlbear_ui.Components.AbilityScoreDisplay>
+        <div>
+            <owlbear_ui.Components.AbilityScoreDisplay abilityScores=@abi>
+            </owlbear_ui.Components.AbilityScoreDisplay>
+        </div>
         <div class="buffer"></div>
-        <owlbear_ui.Components.HitPointsComponent hitPoints=@hp>
-        </owlbear_ui.Components.HitPointsComponent>
+        <div>
+            <owlbear_ui.Components.HitPointsComponent hitPoints=@hp>
+            </owlbear_ui.Components.HitPointsComponent>
+        </div>
     </div>
     <div class="buffer"></div>
     <owlbear_ui.Components.InventoryComponent inv=@pc.CharInv>
